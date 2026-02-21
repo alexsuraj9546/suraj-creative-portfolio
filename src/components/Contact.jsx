@@ -24,13 +24,15 @@ function Contact() {
     const loadingToast = toast.loading("Sending your message...");
 
     try {
-      const response = await fetch("https://suraj-creative-portfolio.onrender.com//send-email", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+     // Contact.jsx mein fetch function ko update karein
+const response = await fetch("https://portfolio-backend-1-8iq8.onrender.com/send-email", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(formData), // Ensure user_name, user_email, subject, message isme ho
+});
+      
 
       const data = await response.json();
 
