@@ -1,0 +1,286 @@
+.about-section {
+  background-color: #000; /* Pure Black */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 10%;
+  overflow: hidden;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 60px; /* Spacing between text and image */
+}
+
+/* --- Left Side Content --- */
+.about-content {
+  flex: 1;
+}
+
+.about-title {
+  color: #ffffff; /* Bright White */
+  font-size: clamp(3.5rem, 6vw, 5.5rem);
+  font-family: 'Impact', 'Arial Black', sans-serif;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+}
+
+.about-description {
+  color: #e0e0e0; /* Off-white for readability */
+  font-size: 1.15rem;
+  line-height: 1.6;
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+/* --- Button Styling (Screenshot Match) --- */
+.btn {
+  background-color: #ff9f00;
+  border: none;
+  padding: 8px 8px 8px 25px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.btn span {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.btn-icon {
+  background-color: #000;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 159, 0, 0.3);
+}
+
+/* --- Right Side Image Fix --- */
+.about-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-image-box {
+  width: 100%;
+  max-width: 450px;
+  height: 550px;
+  background-color: #111; /* Visible placeholder while loading */
+  border-radius: 30px; /* Rounded corners like screenshot */
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+}
+
+.about-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Crop to fit box perfectly */
+  display: block;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 968px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-description {
+    margin: 0 auto 30px auto;
+  }
+  .btn {
+    margin: 0 auto;
+  }
+  .about-image-box {
+    height: 400px;
+    margin-top: 30px;
+  }
+}
+/* Buttons Container */
+.about-btns {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.btn.outline {
+  background: transparent;
+  border: 2px solid #ff9f00;
+}
+
+.btn.outline span {
+  color: #ff9f00;
+}
+
+/* Modal Overlay (Background Blur) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px); /* Background blur effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Floating Window */
+.modal-content {
+  background: #111;
+  width: 90%;
+  max-width: 900px;
+  max-height: 80vh;
+  padding: 40px;
+  border-radius: 30px;
+  position: relative;
+  overflow-y: auto;
+  border: 1px solid #333;
+  text-align: center;
+}
+
+.modal-content h3 {
+  color: #ff9f00;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-family: 'Impact', sans-serif;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 2.5rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Certificate Grid inside Modal */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.cert-card {
+  border-radius: 15px;
+  overflow: hidden;
+  border: 1px solid #222;
+  transition: 0.3s;
+}
+
+.cert-card:hover {
+  transform: scale(1.05);
+  border-color: #ff9f00;
+}
+
+.cert-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 768px) {
+  .modal-content {
+    padding: 20px;
+  }
+}
+/* Modal Header Styling */
+.modal-header {
+  color: #ff9f00;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Certificate Card with Info */
+.cert-card {
+  background: #1a1a1a;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #333;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.cert-card:hover {
+  transform: translateY(-10px);
+  border-color: #ff9f00;
+  box-shadow: 0 10px 30px rgba(255, 159, 0, 0.2);
+}
+
+.cert-img-container {
+  width: 100%;
+  height: 200px; /* Fixed height for consistency */
+  overflow: hidden;
+}
+
+.cert-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Image ko box mein fit rakhega */
+  transition: 0.5s;
+}
+
+.cert-card:hover .cert-img-container img {
+  transform: scale(1.1);
+}
+
+.cert-info {
+  padding: 20px;
+  text-align: left;
+}
+
+.cert-info h4 {
+  color: #ff9f00;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.cert-info p {
+  color: #ccc;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Custom Scrollbar for Modal */
+.modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: #ff9f00;
+  border-radius: 10px;
+}

@@ -1,0 +1,120 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 25px 8%;
+  display: flex;
+  align-items: center;
+  z-index: 5000;
+  transition: all 0.4s ease;
+  background: transparent;
+}
+
+.navbar.scrolled {
+  padding: 15px 8%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 159, 0, 0.1);
+}
+
+.nav-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Impact', sans-serif;
+  font-size: 1.8rem;
+  color: #fff;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.highlight {
+  color: #ff9f00; /* Aapka theme color */
+}
+
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #ddd;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-links li a:hover {
+  color: #ff9f00;
+}
+
+/* Hover underline effect */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #ff9f00;
+  bottom: -5px;
+  left: 0;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-btn {
+  background: #ff9f00;
+  color: #000 !important;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 15px rgba(255, 159, 0, 0.3);
+}
+
+.nav-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 159, 0, 0.5);
+}
+
+.nav-mobile-icon {
+  display: none;
+  font-size: 2rem;
+  color: #ff9f00;
+  cursor: pointer;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+  .nav-mobile-icon {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: #0a0a0a;
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.5s ease;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+}
